@@ -21,10 +21,7 @@ you don't understand its purpose !
 ### Usage
 ```js
 import React from 'react';
-
 import puppet from '../src/puppet';
-
-import Container from './Container';
 import puppetBadge from './Badge';
 
 const Badge = puppet(puppetBadge);
@@ -32,10 +29,10 @@ const Div = puppet('div');
 
 class App extends React.Component {
   handleClick() {
-    // Badge will update its prop test and will be re-rendered.
-    this.refs.Badge.setState({ test: true });
-    // div will update its prop style and will be re-rendered.
-    this.refs.div.setState({ style: { color: 'red' } });
+    // Badge will update only its prop test and will be re-rendered.
+    this.refs.Badge.setProps({ test: true });
+    // div will replace its props with style and will be re-rendered.
+    this.refs.div.replaceProps({ style: { color: 'red' } });
   }
 
   render() {
@@ -43,7 +40,7 @@ class App extends React.Component {
       <div>
         <button onClick={ ::this.handleClick }>Click me</button>
         <Badge title='test' ref='Badge'/>
-        <Div ref='div'>
+        <Div ref='div' some='prop'>
           Hello
         </Div>
       </div>

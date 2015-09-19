@@ -11,8 +11,8 @@ const Div = puppet('div');
 
 class App extends React.Component {
   handleClick() {
-    this.refs.Badge.setState({ test: true });
-    this.refs.div.setState({ style: { color: 'red' } });
+    this.refs.Badge.setProps({ test: true });
+    this.refs.div.replaceProps({ style: { color: 'red' } });
   }
 
   render() {

@@ -9,12 +9,28 @@ export default WrappedComponent => {
   return class extends Component {
     static displayName = displayName;
 
+    constructor(...args) {
+      super(...args);
+
+      this.state = {
+        props: {}
+      };
+    }
+
+    setProps(nextProps = {}) {
+      this.setState({ props: { ...this.props, ...nextProps } });
+    }
+
+    replaceProps(nextProps = {}) {
+      this.setState({ props: nextProps });
+    }
+
     shouldComponentUpdate(nextProps, nextState) {
-      return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
+      return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state.props, nextState.props);
     }
 
     render() {
-      return <WrappedComponent { ...this.props } { ...this.state }/>;
+      return <WrappedComponent { ...this.props } { ...this.state.props }/>;
     }
   };
 };
