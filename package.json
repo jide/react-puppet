@@ -5,14 +5,14 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jide/puppet.git"
+    "url": "https://github.com/jide/react-puppet.git"
   },
   "author": "Julien De Luca",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jide/puppet/issues"
+    "url": "https://github.com/jide/react-puppet/issues"
   },
-  "homepage": "https://github.com/jide/puppet",
+  "homepage": "https://github.com/jide/react-puppet",
   "scripts": {
     "test": "node node_modules/karma/bin/karma start karma.conf.js",
     "test:watch": "./node_modules/karma/bin/karma start karma.conf.js --no-single-run",
